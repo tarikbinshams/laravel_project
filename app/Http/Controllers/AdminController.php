@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\user;
+use App\admin;
 use App\book;
 use App\bookorder;
 use App\donatebook;
 use App\requestbook;
 use App\completeorder;
+use Validator;
 
 
 class AdminController extends Controller
@@ -28,7 +30,24 @@ class AdminController extends Controller
      	//print_r($users);
     	return view('admin.allorder')->with('user', $order);
     }
+    function ordercomplete($id){
+    	$order = bookorder::where('id', $id)->first();
+    	//print_r($order);
+    	$cmpltorder = new completeorder();
+    	$cmpltorder->orderid = $order->id;
+    	$cmpltorder->bid = $order->bid;
+    	$cmpltorder->bname = $order->bname;
+    	$cmpltorder->aname = $order->aname;
+    	$cmpltorder->category = $order->category;
+    	$cmpltorder->price = $order->price;
+    	$cmpltorder->bemail = $order->bemail;
+    	$cmpltorder->semail = $order->semail;
+    	$cmpltorder->save();
+    	$order = bookorder::find($id);
+        $order->delete();
+    	return redirect()->route('admin.orderhistory');
 
+    }
     function alldonate(){
      	$book = donatebook::all();
     	return view('admin.alldonate')->with('books', $book);
@@ -53,7 +72,14 @@ class AdminController extends Controller
     	return view('admin.addadmin');
     }
 
-     function addadminstore(Request $Request){
+     function addadminstore(Request $request){
+     	$username = $request->username;
+     	$password = $request->password;
+     	$ad = new admin();
+     	$ad->username = $username;
+     	$ad->password = $password;
+     	$ad->save();
+     	return redirect()->route('admin.index');
     	
     }
 }

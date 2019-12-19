@@ -51,6 +51,7 @@ Route::post('/donatedbook/order/{id}', "UserController@donatedbookstoreorder");
 Route::get('/admin', "AdminController@index")->name('admin.index');
 Route::get('/admin/alluser', "AdminController@alluser")->name('admin.alluser');
 Route::get('/admin/allorder', "AdminController@allorder")->name('admin.allorder');
+Route::get('/admin/ordercomplete/{id}', "AdminController@ordercomplete")->name('admin.ordercomplete');
 Route::get('/admin/alldonate', "AdminController@alldonate")->name('admin.alldonate');
 Route::get('/admin/orderhistory', "AdminController@orderhistory")->name('admin.orderhistory');
 Route::get('/admin/allrequest', "AdminController@allrequest")->name('admin.allrequest');

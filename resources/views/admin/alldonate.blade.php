@@ -44,13 +44,8 @@
 	<p style="text-align: center; padding-top: 0px; font-size: 30px"><strong>All Donated Books</strong></p>
 	<div class="header1">
 		<div class="header1">
-		<a class="btn" id="abc"href="/admin"><i class="fa fa-home"></i></a> |
-		<a href="/admin/post" class="btn btn-success">All Post</a> |
-		<a href="/admin/order" class="btn btn-success">All Orders</a> |
-		<a href="/admin/orderhistory" class="btn btn-primary">Order History</a> |
-		<a href="/admin/request" class="btn btn-warning">Request</a> |
-		<a href="/admin/addadmin" class="btn btn-info">Add Admin</a> |
-		<a href="/logout" class="btn btn-danger">Logout</a>
+		<a class="btn" id="abc"href="{{ route('admin.index')}}"><i class="fa fa-home"></i></a> |
+		<a href="{{ route('logout.index')}}" class="btn btn-danger">Logout</a>
 	</div>
 	</div>
 <br>

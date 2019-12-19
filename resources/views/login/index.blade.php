@@ -88,5 +88,8 @@ a{
 				<a href="{{ route('registration.index') }}">Registration here</a>
             </form>
         </div>
+        <div>
+			{{session('msg')}}
+		</div>
     </body>
 </html>

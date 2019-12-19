@@ -29,6 +29,7 @@ class LoginController extends Controller
 					$request->session()->put('username', $request->email);
 					return redirect()->route('admin.index');
 				}else{
+					$request->session()->flash('msg', 'invalid Email or Password');
 					return redirect()->route('login.index');
 				}
 			}			

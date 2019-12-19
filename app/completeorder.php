@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class completeorder extends Model
 {
-    //
+    public $timestamps = false;
 }

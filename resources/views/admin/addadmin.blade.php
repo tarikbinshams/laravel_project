@@ -82,7 +82,7 @@
                 <input type="text" placeholder="Username" name="username">
                 <input type="password" placeholder="Password" name="password">
 				<input type="submit" value="Add" name="submit">
-				<a href="/admin">Back</a>
+				<a href="{{route('admin.index')}}">Back</a>
             </form>
         </div>
     </body>

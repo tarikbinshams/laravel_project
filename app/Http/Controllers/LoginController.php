@@ -13,6 +13,10 @@ class LoginController extends Controller
     }
 
     function verify(Request $request){
+    	$request->validate([
+			'email'=>'required',
+			'password'=>'required'
+        ]);
 
     	$users = user::where('email', $request->email)
 						->where('password', $request->password)
@@ -29,7 +33,7 @@ class LoginController extends Controller
 					$request->session()->put('username', $request->email);
 					return redirect()->route('admin.index');
 				}else{
-					$request->session()->flash('msg', 'invalid Email or Password');
+					$request->session()->flash('msg', 'Invalid Email or Password');
 					return redirect()->route('login.index');
 				}
 			}			

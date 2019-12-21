@@ -44,8 +44,9 @@
 	<br>
 	<p style="text-align: center; padding-top: 0px; font-size: 30px;"><strong>All Completed Orders</strong></p>
 	<div class="header1">
-			<a class="btn" id="abc"href="{{ route('admin.index')}}"><i class="fa fa-home"></i></a> |
-		<a href="{{ route('logout.index')}}" class="btn btn-danger">Logout</a>
+		<a class="btn" id="abc"href="{{ route('admin.index')}}"><i class="fa fa-home"></i></a> |
+		<a href="{{ route('logout.index')}}" class="btn btn-danger">Logout</a> |
+		<a href="{{ route('download')}}" class="btn btn-info">Download</a>
 	</div>
 <br>
 	<div class="mypost">

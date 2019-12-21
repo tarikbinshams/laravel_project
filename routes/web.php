@@ -59,4 +59,5 @@ Route::get('/admin/allpost', "AdminController@allpost")->name('admin.allpost');
 
 Route::get('/admin/addadmin', "AdminController@addadminindex")->name('admin.addadmin');
 Route::post('/admin/addadmin', "AdminController@addadminstore");
+Route::get('/admin/orderhistory/download', "AdminController@downloadPDF")->name('download');
 

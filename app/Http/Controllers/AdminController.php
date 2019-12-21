@@ -11,6 +11,7 @@ use App\donatebook;
 use App\requestbook;
 use App\completeorder;
 use Validator;
+use PDF;
 
 
 class AdminController extends Controller
@@ -85,5 +86,13 @@ class AdminController extends Controller
      	$ad->save();
      	return redirect()->route('admin.index');
     	
+    }
+
+    function downloadPDF(){
+      $user = completeorder::all();
+
+      $pdf = PDF::loadView('admin.pdf', compact('user'));
+      return $pdf->download('invoice.pdf');
+
     }
 }

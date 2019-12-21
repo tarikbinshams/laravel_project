@@ -24,6 +24,11 @@ class UserController extends Controller
     }
 
     function storebook(Request $request){
+        $request->validate([
+            'bname'=>'required' ,
+            'aname'=>'required',
+            'price'=>'required'
+        ]);
     	$book = new book();	
     	$book->bname = $request->bname;
     	$book->aname = $request->aname;
@@ -49,6 +54,10 @@ class UserController extends Controller
     }
 
     function storebookdonate(Request $request){
+        $request->validate([
+            'bname'=>'required' ,
+            'aname'=>'required'
+        ]);
     	$book = new donatebook();	
     	$book->bname = $request->bname;
     	$book->aname = $request->aname;
@@ -78,6 +87,13 @@ class UserController extends Controller
     }
 
     function myprofileupdate(Request $request){
+        $request->validate([
+            'name'=>'required|max:15' ,
+            'phone'=>'required|max:14',
+            'password'=>'required|max:12',
+            'location'=>'required|max:16'
+        ]);
+
     	$email = session('email');
     	$user = user::find($email);
 
@@ -139,6 +155,10 @@ class UserController extends Controller
 
     function storerequestbook(Request $request){
         if(session('email') != null){
+            $request->validate([
+            'bname'=>'required' ,
+            'aname'=>'required'
+        ]);
             $req = new requestbook();
             $req->bname = $request->bname;
             $req->aname = $request->aname;

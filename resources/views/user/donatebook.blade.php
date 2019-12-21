@@ -2,6 +2,9 @@
 <html>
     <head>
         <title>Donate Book</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     </head>
     
     <style>
@@ -40,12 +43,21 @@ a{
     </style>
 
     <body>
+         @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="form-wrap">
             <form method="post" enctype="multipart/form-data">
                 @csrf
                 <h1>Donate Book</h1>
-                <input type="text" placeholder="Book Name" name="bname" required="required">
-                <input type="text" placeholder="Author Name" name="aname" required="required">
+                <input type="text" placeholder="Book Name" name="bname">
+                <input type="text" placeholder="Author Name" name="aname">
                 <select name="category">
                     <option value="Programming">Programming</option>
                     <option value="Math">Math</option>

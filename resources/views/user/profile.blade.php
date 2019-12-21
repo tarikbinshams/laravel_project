@@ -3,7 +3,8 @@
 <head>
 	<title>My profile</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<style>
 		.header1{
 			text-align: center;
@@ -26,6 +27,15 @@
 	</style>
 </head>
 <body>
+	  @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 	<div class="header1">
 		<h1>Profile </h1>
 
@@ -48,20 +58,20 @@
 				</tr>
 				<tr>
 					<td>Name</td>
-					<td><input type="text" name="name" value="{{ $user[0]->name }}" required="required"></td>
+					<td><input type="text" name="name" value="{{ $user[0]->name }}"></td>
 				</tr>
 				<tr>
 					<td>Phone Number</td>
-					<td><input type="text" name="phone" value="{{ $user[0]->phone }}" required="required"></td>
+					<td><input type="text" name="phone" value="{{ $user[0]->phone }}" ></td>
 				</tr>
 				<tr>
 				<tr>
 					<td>Password</td>
-					<td><input type="text" name="password" value="{{ $user[0]->password }}" required="required"></td>
+					<td><input type="text" name="password" value="{{ $user[0]->password }}"></td>
 				</tr>
 				<tr>
 					<td>Location</td>
-					<td><input type="text" name="location" value="{{ $user[0]->location }}" required="required"></td>
+					<td><input type="text" name="location" value="{{ $user[0]->location }}"></td>
 				</tr>
 			</table>
 				<td><input type="submit" name="submit" value="Save"></td>

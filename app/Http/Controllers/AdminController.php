@@ -21,6 +21,7 @@ class AdminController extends Controller
 
     function alluser(){
      	$users = user::all();
+        //echo $users[4]->email;
      	//print_r($users);
     	return view('admin.alluser')->with('user', $users);
     }
@@ -73,11 +74,14 @@ class AdminController extends Controller
     }
 
      function addadminstore(Request $request){
-     	$username = $request->username;
-     	$password = $request->password;
+
+        $request->validate([
+            'username'=>'required|unique:admins|max:12' ,
+            'password'=>'required|max:12'
+        ]);
      	$ad = new admin();
-     	$ad->username = $username;
-     	$ad->password = $password;
+     	$ad->username = $request->username;
+     	$ad->password = $request->password;
      	$ad->save();
      	return redirect()->route('admin.index');
     	

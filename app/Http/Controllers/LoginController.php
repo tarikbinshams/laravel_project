@@ -23,7 +23,7 @@ class LoginController extends Controller
 						->get();
 			if(count($users) > 0){
 				$request->session()->put('email', $request->email);
-				return redirect()->route('home.index');
+				return redirect()->route('home.home');
 	            	
 			}else{
 				$admins = admin::where('username', $request->email)

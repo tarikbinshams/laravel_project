@@ -13,6 +13,13 @@ class RegistrationController extends Controller
     }
 
     function register(Request $request){
+        $request->validate([
+            'name'=>'required|max:16' ,
+            'email'=>'required|unique:users',
+            'phone'=>'required|max:14' ,
+            'password'=>'required|max:12',
+            'location'=>'required|max:16'
+,        ]);
         $name = $request->name;
         $email = $request->email;
         $phone = $request->phone;

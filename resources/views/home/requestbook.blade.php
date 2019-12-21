@@ -2,6 +2,9 @@
 <html>
     <head>
         <title>Requesst Book</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     </head>
     
     <style>
@@ -17,7 +20,7 @@
 .form-wrap{ width: 320px; height: 360px; background: #3e3d3d; padding: 45px 20px; box-sizing: border-box; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);}
 h1{text-align: center; color: #fff; font-weight: normal; margin-bottom: 20px;}
         
-input{width: 100%; background: none; border: 1px solid #fff; border-radius: 3px; padding: 6px 15px; box-sizing: border-box; margin-bottom: 20px; font-size: 16px; color: #fff;}
+input{width: 100%; background: none; border: 1px solid #fff; border-radius: 3px; padding: 6px 15px; box-sizing: border-box; margin-bottom: 10px; font-size: 16px; color: #fff;}
 
 select{width: 100%; background:  #3e3d3d; border: 1px solid #fff; border-radius: 3px; padding: 6px 15px; box-sizing: border-box; margin-bottom: 20px; font-size: 16px; color: #fff;}
         
@@ -40,12 +43,21 @@ a{
     </style>
 
     <body>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="form-wrap">
             <form method="post">
                 @csrf
                 <h1>Request Book</h1>
-                <input type="text" placeholder="Book Name" name="bname" required="required">
-                <input type="text" placeholder="Author Name" name="aname" required="required">
+                <input type="text" placeholder="Book Name" name="bname">
+                <input type="text" placeholder="Author Name" name="aname">
                 <select name="category">
                     <option value="Programming">Programming</option>
                     <option value="Math">Math</option>

@@ -52,14 +52,12 @@
 		<table border="1" class="table table-striped"> 
 			<tr>
 				<th>Name</th>
-				<th>Email</th>
 				<th>Phone Number</th>
 				<th>Location</th>
 			</tr>
 			@foreach($user as $u)
 			<tr>
 				<td>{{ $u->name }}</td>
-				<td>{{ $u->email }}</td>
 				<td>{{ $u->phone }}</td>
 				<td>{{ $u->location }}</td>
 			</tr>
